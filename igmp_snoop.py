@@ -20,7 +20,7 @@ class igmp_snoop_forward(DynamicPolicy):
         # examine all IGMP packets
         self.query = match(protocol=IGMP_PROTO) >> packets()
         # keep track of group forwarding rules - need targeted deletion to
-        # handle 
+        # handle group leave requests
         self.group_rules = set()
 
         def track_group_membership(pkt):
